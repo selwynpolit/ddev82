@@ -1,0 +1,56 @@
+uuid: 4bc48d2f-5901-4407-974b-0cd1bdf3ea3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.ord.body
+    - field.field.node.ord.field_landing_opinion_page
+    - field.field.node.ord.field_ord_file
+    - field.field.node.ord.field_title
+    - node.type.ord
+  module:
+    - file
+    - options
+    - text
+    - user
+id: node.ord.default
+targetEntityType: node
+bundle: ord
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_landing_opinion_page:
+    weight: 103
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_ord_file:
+    weight: 102
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_title:
+    weight: 104
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

@@ -1,0 +1,23 @@
+uuid: 41323db0-96cd-4091-a5ba-94f0be8b6986
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_landing_opinion_page
+    - node.type.ord
+  module:
+    - options
+id: node.ord.field_landing_opinion_page
+field_name: field_landing_opinion_page
+entity_type: node
+bundle: ord
+label: 'Content Type'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: ORD
+default_value_callback: ''
+settings: {  }
+field_type: list_string

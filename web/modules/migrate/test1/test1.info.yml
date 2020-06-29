@@ -1,0 +1,12 @@
+name: Migrate Source CSV Test
+type: module
+package: Testing
+core: 8.x
+dependencies:
+  - drupal:migrate
+  - migrate_source_csv:migrate_source_csv
+  - drupal:node
+  - drupal:datetime
+version: 8.x-1.0
+# copied from migrate_source_csv test example
+# 3-16-2020

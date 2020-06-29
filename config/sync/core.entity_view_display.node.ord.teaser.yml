@@ -1,0 +1,36 @@
+uuid: 1e15cdf8-d50c-4d03-99c6-54547db9b445
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.ord.body
+    - field.field.node.ord.field_landing_opinion_page
+    - field.field.node.ord.field_ord_file
+    - field.field.node.ord.field_title
+    - node.type.ord
+  module:
+    - text
+    - user
+id: node.ord.teaser
+targetEntityType: node
+bundle: ord
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_landing_opinion_page: true
+  field_ord_file: true
+  field_title: true

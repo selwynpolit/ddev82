@@ -1,0 +1,82 @@
+langcode: en
+status: true
+dependencies: {  }
+id: oag_opinions_2020_files_ord
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: oag_ord_2020
+label: 'Import ORD PDF files'
+source:
+  constants:
+    SOURCE_BASE_PATH: 'https://www2.texasattorneygeneral.gov'
+    FILE_DIRECTORY: 'public://files/ord/migrate'
+  plugin: csv
+  ids: [unique_id]
+  path: 'public://oag_ord.csv'
+  enclosure: "\""
+  header_row_count: 1
+  fields:
+    -
+      name: ag_firstname
+      label: ag_firstname
+    -
+      name: ag_lastname
+      label: ag_lastname
+    -
+      name: ag_fullname
+      label: ag_fullname
+    -
+      name: release_date
+      label: release_date
+    -
+      name: title
+      label: title
+    -
+      name: summary
+      label: summary
+    -
+      name: source_url
+      label: source_url
+    -
+      name: file_name
+      label: file_name
+    -
+      name: year
+      label: year
+    -
+      name: ag_ident
+      label: ag_ident
+    -
+      name: doc_type
+      label: doc_type
+    -
+      name: unique_id
+      label: unique_id
+process:
+  blah:
+    -
+      plugin: debug
+      source: file_name
+      label: 'the file name izz:'
+
+  destination_full_path:
+    -
+      plugin: concat
+      delimiter: /
+      source:
+        - constants/FILE_DIRECTORY
+        - year
+        - file_name
+    -
+      plugin: urlencode
+  uri:
+    plugin: file_copy
+    source:
+      - source_url
+      - '@destination_full_path'
+    rename: true
+destination:
+  plugin: 'entity:file'
+migration_dependencies: null

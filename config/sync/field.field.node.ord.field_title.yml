@@ -1,0 +1,19 @@
+uuid: b881529f-5072-4e92-9db1-a742d7b01f43
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_title
+    - node.type.ord
+id: node.ord.field_title
+field_name: field_title
+entity_type: node
+bundle: ord
+label: Identifier
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

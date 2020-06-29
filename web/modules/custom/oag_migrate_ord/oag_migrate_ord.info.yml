@@ -1,0 +1,14 @@
+type: module
+name: 'OAG Migrate: ORD'
+description: 'Module for migrating ORD opinions'
+package: 'OAG'
+core: '8.x'
+dependencies:
+  - migrate
+  - migrate_source_csv
+  - migrate_plus
+  - migrate_tools
+  - node
+  - taxonomy
+#  - oag_migrate_taxonomy
+#  - oag_migrate

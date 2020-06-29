@@ -1,0 +1,40 @@
+id: csvplay
+label: 'CSV play migration for sanity'
+migration_group: selwyn
+dependencies: {  }
+status: true
+source:
+  plugin: csv
+  path: public://countries.csv
+  ids: [id]
+process:
+  name: country
+  vid:
+    plugin: default_value
+    default_value: country
+destination:
+  plugin: entity:taxonomy_term
+
+
+#source:
+#  plugin: csv
+#  path: /tmp/countries.csv
+#  keys: [id]
+#  delimiter: ","
+#  enclosure: "\""
+#  escape: "\\"
+#  header_row_count: 1
+#  file_flags: 17
+#  column_names:
+#    -
+#      id: ID
+#    -
+#      country: Country
+#  file_class: Drupal\migrate_source_csv\CSVFileObject
+#process:
+#  name: country
+#  vid:
+#    plugin: default_value
+#    default_value: country
+#destination:
+#  plugin: entity:taxonomy_term

@@ -1,0 +1,90 @@
+id: oag_opinions_2020_nodes_ord
+label: 'Import ord Nodes'
+langcode: en
+status: true
+dependencies: {  }
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: oag_ord_2020
+source:
+  plugin: csv
+  ids: [unique_id]
+  path: 'public://oag_ord.csv'
+  header_row_count: 1
+#  keys:
+#    - unique_id
+  fields:
+    -
+      name: ag_firstname
+      label: ag_firstname
+    -
+      name: ag_lastname
+      label: ag_lastname
+    -
+      name: ag_fullname
+      label: ag_fullname
+    -
+      name: release_date
+      label: release_date
+    -
+      name: title
+      label: title
+    -
+      name: summary
+      label: summary
+    -
+      name: source_url
+      label: source_url
+    -
+      name: file_name
+      label: file_name
+    -
+      name: year
+      label: year
+    -
+      name: ag_ident
+      label: ag_ident
+    -
+      name: doc_type
+      label: doc_type
+    -
+      name: unique_id
+      label: unique_id
+
+process:
+  release_timestamp:
+    -
+      plugin: debug
+      label: 'I think the time is:'
+      source: release_date
+    -
+      plugin: format_date
+      from_format: Y-m-d
+      to_format: U
+      source: release_date
+  type:
+    plugin: default_value
+    default_value: ord
+  title: title
+#  uid: 11
+  uid: 1
+  body/format:
+    plugin: default_value
+    default_value: rich_text
+  body/value: summary
+  created: '@release_timestamp'
+  field_title: title
+  field_landing_opinion_page_type: doc_type
+#  field_file/target_id:
+#    plugin: migration_lookup
+#    migration: oag_opinions_2020_files_ord
+#    source: unique_id
+#  field_category/target_id:
+#    source: ag_id
+destination:
+  plugin: 'entity:node'
+migration_dependencies:
+  optional:
+    - oag_opinions_2020_files_ord

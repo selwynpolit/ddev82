@@ -1,0 +1,40 @@
+uuid: edf5e82d-fe20-4356-aa96-10f43411e4c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.people.body
+    - field.field.node.people.field_dob
+    - field.field.node.people.field_email
+    - field.field.node.people.field_first_
+    - field.field.node.people.field_ip_address
+    - field.field.node.people.field_last_name
+    - node.type.people
+  module:
+    - text
+    - user
+id: node.people.teaser
+targetEntityType: node
+bundle: people
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_dob: true
+  field_email: true
+  field_first_: true
+  field_ip_address: true
+  field_last_name: true

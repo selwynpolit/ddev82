@@ -1,0 +1,9 @@
+name: 'CSV play'
+type: module
+package: Selwyn
+core: '8.x'
+dependencies:
+  - migrate
+  - migrate_source_csv
+version: 8.x-1.0
+
